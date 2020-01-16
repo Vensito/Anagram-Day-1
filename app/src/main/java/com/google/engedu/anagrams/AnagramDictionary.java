@@ -127,7 +127,37 @@ public class AnagramDictionary {
     }
 
     public String pickGoodStarterWord() {
-        return "post";
+
+
+
+
+            Integer size = wordList.size();
+
+
+            // Initialize the anagram
+            int numOfAnagrams = 0;
+            String baseword = new String();
+            Log.d("Evens", size.toString());// this line will print the size of the wordList
+
+        // Create a while do loop
+
+        do {
+            Random random = new Random();
+            int randomindex = random.nextInt(size);
+            baseword = wordList.get(randomindex);
+
+            String key = sortedLetters(baseword);
+
+            //get number of anagrams for baseword in their size
+
+            numOfAnagrams = lettersToWord.get(key).size();
+        }
+
+            while (numOfAnagrams < 5);
+
+
+            return baseword;
+
     }
 }
 
